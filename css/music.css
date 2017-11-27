@@ -1,0 +1,202 @@
+html{font-size: 100px}
+body{
+    position: relative;
+    min-width: 320px;
+    max-width: 640px;
+    font-size: 16px;
+    margin: auto;
+    overflow: hidden;
+}
+#musicApp .controller{
+    width: 100%;
+    margin:auto;
+}
+#musicApp .controller .search-bar{
+    width: 100%;
+    height: .52rem;
+    background-color: #C20C0C;
+    font-size: .16rem;
+}
+#musicApp .controller .search-bar .icon-sousuo{
+    position: absolute;
+    top: .1rem;
+    left: .34rem;
+    font-size: .28rem;
+    z-index: 999;
+}
+#musicApp .controller .search-bar .search-btn{
+    position: absolute;
+    top: .12rem;
+    right: .3rem;
+    color: white;
+    padding: .02rem;
+    border-radius: .1rem;
+    /*border: .01rem solid #ccc;*/
+}
+#musicApp .controller .search{
+    position: absolute;
+    top:.1rem;
+    left: .26rem;
+    width: 5rem;
+    height: .32rem;
+    padding: .14rem .14rem .14rem .4rem;
+    border-radius:.16rem;
+    border: 1px solid #bbb;
+    font-size:.16rem;
+    text-align: left;
+}
+#musicApp .controller .player-box{
+    position: relative;
+    width: 100%;
+    height:5rem;
+    border: .01rem solid #ccc;
+}
+#musicApp .controller .player-box .song-name{
+    width: 100%;
+    height: .4rem;
+    margin-top: .1rem;
+    font: .28rem/.4rem "";
+    text-align: center;
+}
+#musicApp .controller .player-box .pic{
+    width: 100%;
+    height: 3rem;
+    margin-top:.3rem;
+    text-align: center;
+}
+#musicApp .controller .player-box .pic img{
+    width: 3rem;
+    height:3rem;
+}
+#musicApp .controller .player-box .player{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: .8rem;
+    /*background-color: #d1434a;*/
+}
+#musicApp .controller .player-box .player .progress{
+    position: relative;
+    width: 100%;
+    height: .06rem;
+    background-color: #bbb;
+}
+#musicApp .controller .player-box .player .progress .progress-val{
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: #C20C0C;
+}
+#musicApp .controller .player-box .player .progress .progress-val .progress-flag{
+    position: absolute;
+    left: 0;
+    margin-top: -0.01rem;
+    width: .08rem;
+    height: .08rem;
+    border-radius: 50%;
+    border: .01rem solid #666;
+    background-color: white;
+    cursor: pointer;
+}
+#musicApp .controller .player-box .player .group{
+    position: relative;
+    width: 100%;
+    margin-top: .03rem;
+    color: #666666;
+}
+#musicApp .controller .player-box .player .group .play-time{
+    font-size: .14rem;
+    padding: .04rem;
+}
+#musicApp .controller .player-box .player .group .iconfont{
+    font-size: inherit;
+    display: block;
+}
+#musicApp .controller .player-box .player .group .prev{
+    position: absolute;
+    top:.18rem;
+    left:2.67rem;
+    margin: auto;
+    width: .26rem;
+    height:.26rem;
+    font-size: .26rem;
+    cursor: pointer;
+}
+#musicApp .controller .player-box .player .group .play,
+#musicApp .controller .player-box .player .group .pause{
+    position: absolute;
+    top:.14rem;
+    left:0;
+    right: 0;
+    margin: auto;
+    width: .36rem;
+    height:.36rem;
+    font-size: .36rem;
+    cursor: pointer;
+}
+#musicApp .controller .player-box .player .group .pause{
+    background: white;
+    z-index: 999;
+}
+#musicApp .controller .player-box .player .group .next{
+    position: absolute;
+    top:.18rem;
+    left:3.44rem;
+    width: .26rem;
+    height:.26rem;
+    font-size: .26rem;
+    cursor: pointer;
+}
+#musicApp .btn-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+#musicApp .controller .musicList{
+    width: 100%;
+    max-height: 8rem;
+    overflow: auto;
+}
+#musicApp .controller .musicList .music{
+    width: 100%;
+    height: .34rem;
+    border: .01rem solid #ccc;
+}
+#musicApp .controller .musicList .music.check{
+    background-color:#e9e9e9;
+}
+#musicApp .controller .musicList .music .check-flag{
+    float: left;
+    width: .08rem;
+    height: .34rem;
+    background-color:#e9e9e9;
+}
+#musicApp .controller .musicList .music ul>.check{
+    background-color: #C20C0C!important;
+}
+#musicApp .controller .musicList .music .num{
+    float: left;
+    width: .34rem;
+    height: .34rem;
+    margin: 0 .08rem;
+    font: .18rem/.34rem "";
+    text-align: center;
+}
+#musicApp .controller .musicList .music .name{
+    float: left;
+    height: .34rem;
+    margin: 0 .08rem;
+    font: .18rem/.34rem "";
+    text-align: left;
+}
+#musicApp .controller .musicList .music .singer{
+    float: right;
+    height: .34rem;
+    margin: 0 .08rem;
+    font: .18rem/.34rem "";
+    text-align: center;
+}
+#musicApp .btn-group>button{
+    height: .36rem;
+    line-height: .36rem;
+}

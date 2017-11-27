@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/music.css">
+    <title>vue音乐播放器</title>
+</head>
+<body>
+    <div id="musicApp">
+        <div class="controller">
+            <header class="search-bar">
+                <i class="iconfont icon-sousuo" ></i>
+                <button class="search-btn" @click="searchMusic">搜索</button>
+            </header>
+            <input type="text"class="search"  placeholder="搜索歌名或者歌手" v-model="keyWord">
+            <div class="player-box">
+                <div class="song-name">{{music.songname}}</div>
+                <div class="pic"><img :src="music.albumpic_big" alt=music.songname""></div>
+                <div class="player">
+                    <audio class="audio" style="display: none" :src="music.m4a">
+                    </audio>
+                    <div class="progress">
+                        <span class="progress-val">
+                            <span class="progress-flag"></span>
+                        </span>
+                    </div>
+                    <div class="group">
+                        <div class="play-time">00:00</div>
+                        <div class="prev" @click="prevMusic(music)"><i class="iconfont icon-shangyige"></i></div>
+                        <div class="play" @click="playMusic"><i class="iconfont icon-bofang"></i></div>
+                        <div class="pause" @click="pauseMusic" v-show="playOrPause"><i class="iconfont icon-zanting"></i></div>
+                        <div class="next" @click="nextMusic(music)"><i class="iconfont icon-xiayige"></i></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="musicList" v-for="(item,index) in musicCache">
+                <li class="music" :class="{'check':item.check}" @click="checkedMusic(item)">
+                    <ul class="clearfix">
+                        <li class="check-flag" :class="{'check':item.check}"></li>
+                        <li class="num">{{index+1+(page-1)*30}}</li>
+                        <li class="name">{{item.songname}}</li>
+                        <li class="singer">{{item.singername}}</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn" @click="changePage(true)">上一页</button>
+                <button class="btn" @click="changePage(false)">下一页</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/lib/vue.min.js"></script>
+    <script src="js/lib/vue-resource.js"></script>
+    <script src="js/music.js"></script>
+</body>
+</html>
