@@ -144,15 +144,43 @@ var myMusic = new Vue({
                 return Math.floor(val/60)+":"+Math.floor(val%60);
             }
             this.timer= setInterval(function () {
-                var  bili = _this.player.currentTime/_this.player.duration,
+                var  scale = _this.player.currentTime/_this.player.duration,
                      progressVal = document.getElementsByClassName("progress-val")[0],
                      progressFlag = document.getElementsByClassName("progress-flag")[0],
                      playTime = document.getElementsByClassName("play-time")[0];
                      playTime.innerText=formatTime(_this.player.currentTime);
-                     progressVal.style.width = bili*100+"%";
+                     progressVal.style.width = scale*100+"%";
                      progressFlag.style.left=progressVal.offsetWidth-progressFlag.offsetWidth/2+"px";
 
             },1000/60)
+        },
+        dragProgressFlaf:function (e) {
+                this.playMusic();
+                this.pauseMusic();
+            var oe =e||window.event,
+                flag=document.getElementsByClassName("progress-flag")[0],
+                progress=document.getElementsByClassName("progress-val")[0],
+                MinL=-flag.offsetWidth/2,
+                MaxL=document.getElementsByClassName("progress")[0].offsetWidth+MinL,
+                flagLeft=flag.offsetLeft,
+                flagX=oe.clientX;
+            document.onmousemove=function (e) {
+                 var oe =e||window.event,
+                      scale,
+                      thisX=oe.clientX-flagX+flagLeft;
+                      thisX=Math.min(thisX,MaxL);
+                      thisX=Math.max(MinL,thisX);
+                      scale=(thisX-MinL)/(MaxL-MinL);
+
+                 myMusic.player.currentTime=scale*myMusic.player.duration;
+                 progress.style.width=thisX-MinL+"px";
+                 flag.style.left=thisX+"px";
+            }
+            document.onmouseup=function () {
+                document.onmousemove=null;
+                document.onmuseup=null;
+                myMusic.playMusic();
+            }
         }
     },
     filters:{
