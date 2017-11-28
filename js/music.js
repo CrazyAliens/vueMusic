@@ -178,8 +178,8 @@ var myMusic = new Vue({
             }
             document.onmouseup=function () {
                 document.onmousemove=null;
-                document.onmuseup=null;
                 myMusic.playMusic();
+                document.onmuseup=null;
             }
         }
     },
