@@ -179,7 +179,7 @@ var myMusic = new Vue({
             document.onmouseup=function () {
                 document.onmousemove=null;
                 myMusic.playMusic();
-                document.onmuseup=null;
+                document.onmouseup=null;
             }
         }
     },
